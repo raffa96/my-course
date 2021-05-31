@@ -6,12 +6,12 @@ namespace MyCourse.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Welcome to courses page!");
+            return View();
         }
 
         public IActionResult Detail(string id)
         {
-            return Content($"Corso #{id}");
+            return View();
         }
     }
 }
