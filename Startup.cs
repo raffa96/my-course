@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +22,13 @@ namespace C_
             if (env.IsEnvironment("Development"))
             {
                 app.UseDeveloperExceptionPage();
+
+                // aggiorniamo un file per notificare al BrowserSync che deve aggiornare la pagina
+                lifetime.ApplicationStarted.Register(() =>
+                {
+                    string filePath = Path.Combine(env.ContentRootPath, "bin/reload.txt");
+                    File.WriteAllText(filePath, DateTime.Now.ToString());
+                });
             }
             else
             {

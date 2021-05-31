@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["ASPNETCORE", "netcoreapp"]
+  "cSpell.words": ["ASPNETCORE", "netcoreapp"],
+  "browserSync.config": {
+    "proxy": "localhost:5000",
+    "files": ["bin/reload.txt", "Views/**/*.cshtml", "wwwroot/**/*"]
+  }
 }
